@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>Email Verification</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/about.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
     <header>
         <nav>
             <div class="logo"><a href="index.html"> <img src="assets/home/logo.svg" alt="logo"></a> </div>
-            <div class="links">
+            <div class="links" hidden>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="#">Services</a></li>
@@ -24,15 +24,14 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            <div class="nav-buttons">
-                
+            <div class="nav-buttons" style="visibility: hidden;">
                 <button id="dash" onclick="window.location.href='dashboard.html'">MY DASHBOARD</button>
                 <button id="login"onclick="window.location.href='login.html'">LOGIN/REGISTER</button>
             </div>
         </nav>
     </header>
 
-    <div id="message"></div>
+    <div id="message" style="padding: 10px; margin: 10px; font-size: 1.3em;"></div>
 
     <script>
         const message = document.getElementById('message');
@@ -46,13 +45,15 @@
             }
 
             try {
-                const response = await fetch(`delish-nutrio.onrender.com/api/verifyEmail?token=${token}`, {
+                const response = await fetch(`http://delish-nutrio.onrender.com/api/verifyEmail/${token}`, {
                     method: 'GET',
                 });
 
                 if (response.ok) {
                     window.location.href = 'accountcreationsuccess.html';
                 } else {
+                    const data = await response.json();
+                    console.log(data);
                     message.textContent = 'Invalid or expired token. Please request a new verification link.';
                 }
             } catch (error) {
