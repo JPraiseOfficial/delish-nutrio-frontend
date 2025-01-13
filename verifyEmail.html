@@ -45,7 +45,7 @@
             }
 
             try {
-                const response = await fetch(`http://delish-nutrio.onrender.com/api/verifyEmail/${token}`, {
+                const response = await fetch(`https://delish-nutrio.onrender.com/api/verifyEmail/${token}`, {
                     method: 'GET',
                 });
 
@@ -61,7 +61,6 @@
             }
         }
 
-        // Call the verify function when the page loads
         window.onload = verifyEmail;
     </script>
 </body>
