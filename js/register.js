@@ -27,7 +27,7 @@ form.addEventListener('submit', function (event) {
         })
         .then(data => {  
             console.log('Success:', data); 
-            window.location.href = '../verification.html'; 
+            window.location.href = './verification.html'; 
         })  
         .catch(error => {  
             console.error('Error:', error);  
