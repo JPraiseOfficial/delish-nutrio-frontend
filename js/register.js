@@ -18,12 +18,11 @@ form.addEventListener('submit', function (event) {
 
     const register = async () => {
         try {
-            const response = await fetch(`${backendServer}/api/register`, options, {
-                method: 'POST',
-            });
+            const response = await fetch(`${backendServer}/api/register`, options);
+            const responseData = await response.json()
 
             if (response.ok) {
-                console.log('Success:', responseData);
+                window.alert('User Registered Successfully');
                 window.location.href = './verification.html';
             } else {
                 const responseData = await response.json();
