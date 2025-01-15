@@ -1,1 +1,1 @@
-export const backendServer = 'http://localhost:3000'
+export const backendServer = 'https://delish-nutrio.onrender.com';
