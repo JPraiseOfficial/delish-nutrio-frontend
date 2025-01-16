@@ -7,6 +7,12 @@
     <title>Register</title>
     <link rel="stylesheet" href="css/register.css">
     <script src="js/register.js" type="module" defer></script>
+    <style>
+        .form-error {
+            margin:0;
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,38 +36,38 @@
                 <div class="Form-group">
                     <label for="firstname">First Name</label>
                     <input type="text" id="firstname" name="firstname">
-                    <div id="firstname_error" class="form-error"></div>
+                    <small id="firstname_error" class="form-error"></small>
                 </div>
                 <div class="Form-group">
                     <label for="lastname">Last Name</label>
                     <input type="text" id="lastname" name="lastname">
-                    <div id="lastname_error" class="form-error"></div>
+                    <small id="lastname_error" class="form-error"></small>
                 </div>
                 <div class="Form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username">
-                    <div id="username_error" class="form-error"></div>
+                    <small id="username_error" class="form-error"></small>
                 </div>
                 <div class="Form-group">
                     <label for="phone_number">Phone Number</label>
                     <input type="tel" id="phone_number" name="phone_number">
-                    <div id="phone_number_error" class="form-error"></div>
+                    <small id="phone_number_error" class="form-error"></small>
                 </div>
                 <div class="Form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email">
-                    <div id="email_error" class="form-error"></div>
+                    <small id="email_error" class="form-error"></small>
 
                 </div>
                 <div class="Form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password">
-                    <div id="password_error" class="form-error"></div>
+                    <small id="password_error" class="form-error"></small>
                 </div>
                 <div class="Form-group">
                     <label for="confirmPassword">Confirm Password</label>
                     <input type="password" id="confirmPassword" name="confirmPassword">
-                    <div id="confirmPassword_error" class="form-error"></div>
+                    <small id="confirmPassword_error" class="form-error"></small>
                 </div>
                 <button id="sign-up-btn" type="submit"> Sign Up</button>
 

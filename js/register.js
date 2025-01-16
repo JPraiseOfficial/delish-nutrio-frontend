@@ -19,19 +19,21 @@ form.addEventListener('submit', function (event) {
     const register = async () => {
         try {
             const response = await fetch(`${backendServer}/api/register`, options);
-            const responseData = await response.json()
 
             if (response.ok) {
                 window.alert('User Registered Successfully');
                 window.location.href = './verification.html';
             } else {
                 const responseData = await response.json();
-                console.log(responseData)
+                const errors = responseData.errors
 
+                errors.forEach(error => {
+                    document.querySelector(`#${error.path}_error`).textContent = error.msg
+                });
             }
 
         } catch (error) {
-            console.log('An error occurred')
+            window.alert('An error occurred')
         }
 
     }
