@@ -15,6 +15,23 @@
         rel="stylesheet">
     <script src="./js/login.js" type="module" defer></script>
 
+    <style>
+        .hidden {
+            display: none;
+        }
+        .login-response {
+            padding: 10px;
+            margin: 10px 20px;
+        }
+        .login-error {
+            background: lightcoral;
+            border: 1px solid red;
+        }
+        .login-success {
+            background: lightgreen;
+            border: 1px solid green;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,6 +51,7 @@
                 <h2>Welcome Back!</h2>
                 <p>Please log in to your account to get started</p>
                 <form id="login-form">
+                    <div class="login-response hidden"></div>
                     <label for="emailOrPhone">Email or Phone Number</label>
                     <input type="text" id="emailOrPhone" name="emailOrPhone" placeholder="Enter your email or phone number" required>
 

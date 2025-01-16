@@ -1,9 +1,12 @@
 import { backendServer } from "./global_variables.js";
 
 const loginForm = document.querySelector('#login-form');
+const loginResponse = document.querySelector('.login-response');
 
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
+    loginResponse.textContent = '';
+
     const formData = new FormData(loginForm);
     const formDataObject = Object.fromEntries(formData);
 
@@ -19,16 +22,20 @@ loginForm.addEventListener('submit', (event) => {
     const login = async () => {
         try {
             const response = await fetch(`${backendServer}/api/login`, options);
-            const responseData = await response.json();
             
             if (response.ok) {
+                loginResponse.classList.toggle('hidden');
+                loginResponse.classList.add('login-success');
+                loginResponse.textContent = 'Login Successful'
                 window.location.href = './dashboard.html';
             } else {
                 const data = await response.json();
-                console.log(data); 
+                loginResponse.classList.toggle('hidden');
+                loginResponse.classList.add('login-error');
+                loginResponse.textContent = data.message;
             }
         } catch (error) {
-            console.log('An Error Occurred')
+            loginResponse.textContent = 'An Error Occurred';
         }
     }
     login()
