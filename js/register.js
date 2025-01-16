@@ -1,7 +1,5 @@
 import { backendServer } from "./global_variables.js";
 const form = document.getElementById('register-form');
-const formErrors = document.querySelectorAll('.form-error')
-console.log(formErrors)
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
